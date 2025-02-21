@@ -110,9 +110,9 @@ ol {
 .search-form__fieldset-title {
   font-weight: 400;
   font-size: 18px;
-  font-family: Fira Sans Condensed, sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   color: #fff;
-  line-height: 21.6px;
+  line-height: 1.2;
 }
 
 .search-form__label {
@@ -124,7 +124,6 @@ ol {
 
 .search-form__textfield {
   inline-size: 225px;
-  border: none;
   background-color: transparent;
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
@@ -136,6 +135,7 @@ ol {
   padding: 2px 0;
   color: #fff;
   appearance: none;
+  outline: none;
 }
 
 .search-form__textfield::placeholder {
@@ -151,13 +151,14 @@ ol {
   border-right-color: #fff;
 }
 
-.search-form__label-text:hover {
+/*нижнее подчеркивание не должно появляться при наведении курсора на текстовое поле*/
+.search-form__label:has(:hover) {
   text-decoration: underline;
   text-underline-offset: 4px;
   cursor: pointer;
 }
 
-.search-form__label:has(:not(:active):focus-visible) {
+.search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 2px;
 }
@@ -194,11 +195,12 @@ ol {
   border: 1px solid #fff;
   color: #fff;
   font-size: 18px;
-  line-height: 21.6px;
+  line-height: 1.2;
   font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 700;
   background-color: transparent;
   cursor: pointer;
+  min-block-size: 34px;
 }
 
 .button:focus {
@@ -213,24 +215,22 @@ ol {
   background-color: #545050;
 }
 
-.button:has(:not(:active):focus-visible) {
+.button:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 2px;
 }
 
 .search-form__submit-button {
   align-self: flex-end;
-  min-block-size: 34px;
   min-inline-size: 194px;
 }
 
 .more-button {
   inline-size: 100%;
-  min-block-size: 34px;
 }
 
 .title {
-  line-height: 70.5px;
+  line-height: 0.94;
   color: #fff;
   font-family: Oswald, sans-serif;
   font-weight: 700;
@@ -264,7 +264,6 @@ ol {
   display: block;
   text-decoration: none;
   color: #fff;
-  cursor: pointer;
 }
 
 .content__video-card {
@@ -314,15 +313,16 @@ ol {
   background-color: #545050;
 }
 
-.content__card-link:has(:not(:active):hover) {
+.content__card-link:has(:hover) {
   text-decoration: underline;
+  text-decoration-skip-ink: none;
 }
 
 .content__card-link:focus {
   outline: none;
 }
 
-.content__card-link:has(:not(:active):focus-visible) {
+.content__card-link:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 2px;
 }
